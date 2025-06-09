@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Payment | Event Contribution</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="blur-bg"></div>
+    <div class="container">
+        <header class="glass-card">
+            <div class="logo">
+                <i class="fas fa-qrcode"></i>
+                <h1>Complete Payment</h1>
+            </div>
+            <p>Scan the QR code or use UPI ID to complete your contribution</p>
+        </header>
+
+        <main>
+            <div class="payment-container glass-card">
+                <div class="qr-container">
+                    <h3 id="eventTitle">Birthday Celebration</h3>
+                    <img src="assets/images/qr.jpg" alt="UPI QR Code" class="qr-code">
+                    <p class="upi-id">UPI ID: eventfund@axl</p>
+                    <div class="payment-options">
+                        <div class="option">
+                            <i class="fab fa-google-pay"></i>
+                            <span>Google Pay</span>
+                        </div>
+                        <div class="option">
+                            <i class="fas fa-mobile-alt"></i>
+                            <span>PhonePe</span>
+                        </div>
+                        <div class="option">
+                            <i class="fas fa-rupee-sign"></i>
+                            <span>Paytm</span>
+                        </div>
+                    </div>
+                </div>
+
+                <form id="paymentForm" class="payment-form">
+                    <h3>Payment Verification</h3>
+                    
+                    <div class="form-group">
+                        <label for="screenshot">Upload Payment Screenshot*</label>
+                        <input type="file" id="screenshot" accept="image/*" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="transactionId">Transaction ID*</label>
+                        <input type="text" id="transactionId" required placeholder="Enter UPI transaction ID">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="amount">Amount Paid (₹)*</label>
+                        <input type="number" id="amount" required placeholder="Enter amount">
+                    </div>
+
+                    <button type="submit" class="submit-btn">
+                        Submit Payment <i class="fas fa-check-circle"></i>
+                    </button>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <footer>
+    Made with <span class="red-heart">❤️</span> by <strong>Bishal Singh</strong><br />
+    <span>© 2025 All Rights Reserved</span>
+  </footer>
+
+    <script src="assets/js/payment.js"></script>
+</body>
+</html>
