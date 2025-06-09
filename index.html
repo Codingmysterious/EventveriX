@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EventVeriX | Contribution Portal</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="blur-bg"></div>
+    <div class="container">
+        <header class="glass-card">
+            <div class="logo">
+                <i class="fas fa-hand-holding-heart"></i>
+                <h1>Event Contribution</h1>
+            </div>
+            <p>Secure payment portal for group events and celebrations</p>
+        </header>
+
+        <main>
+            <form id="contributionForm" class="glass-card form-container">
+                <h2>Contribution Details</h2>
+                
+                <div class="form-group">
+                    <label for="eventType">Event Type*</label>
+                    <select id="eventType" required>
+                        <option value="" disabled selected>Select event</option>
+                        <option value="birthday">Birthday Celebration</option>
+                        <option value="farewell">Farewell Party</option>
+                        <option value="trust">Trust Donation</option>
+                        <option value="newyear">New Year Event</option>
+                        <option value="religious">Religious Function</option>
+                        <option value="other">Other Social Gathering</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="name">Full Name*</label>
+                    <input type="text" id="name" required placeholder="Enter your full name">
+                </div>
+
+                <div class="form-group">
+                    <label for="mobile">Mobile Number*</label>
+                    <input type="tel" id="mobile" required placeholder="Enter 10-digit mobile number" pattern="[0-9]{10}">
+                </div>
+
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="isEmployee">
+                    <label for="isEmployee">I am an employee/member</label>
+                </div>
+
+                <div id="employeeFields" class="hidden">
+                    <div class="form-group">
+                        <label for="company">Company/Organization Name</label>
+                        <input type="text" id="company" placeholder="Enter company name">
+                    </div>
+                    <div class="form-group">
+                        <label for="employeeId">Employee ID</label>
+                        <input type="text" id="employeeId" placeholder="Enter your employee ID">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="photo">Upload Photo (Optional)</label>
+                    <input type="file" id="photo" accept="image/*">
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    Proceed to Payment <i class="fas fa-arrow-right"></i>
+                </button>
+            </form>
+        </main>
+    </div>
+
+    < <footer>
+    Made with <span class="red-heart">❤️</span> by <strong>Bishal Singh</strong><br />
+    <span>© 2025 All Rights Reserved</span>
+  </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

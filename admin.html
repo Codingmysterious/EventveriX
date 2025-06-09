@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel | Event Contributions</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="admin-container">
+        <div class="admin-sidebar glass-card">
+            <div class="admin-logo">
+                <i class="fas fa-user-shield"></i>
+                <h2>Admin Panel</h2>
+            </div>
+            
+            <nav class="admin-nav">
+                <ul>
+                    <li class="active" data-tab="dashboard">
+                        <i class="fas fa-tachometer-alt"></i> Dashboard
+                    </li>
+                    <li data-tab="contributions">
+                        <i class="fas fa-list"></i> All Contributions
+                    </li>
+                    <li data-tab="verified">
+                        <i class="fas fa-check-circle"></i> Verified
+                    </li>
+                    <li data-tab="pending">
+                        <i class="fas fa-clock"></i> Pending
+                    </li>
+                    <li data-tab="export">
+                        <i class="fas fa-file-export"></i> Export Data
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="admin-logout">
+                <button id="logoutBtn">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+            </div>
+        </div>
+
+        <div class="admin-main">
+            <div class="admin-header glass-card">
+                <h3 id="adminPageTitle">Dashboard</h3>
+                <div class="admin-search">
+                    <input type="text" placeholder="Search contributions...">
+                    <i class="fas fa-search"></i>
+                </div>
+            </div>
+
+            <div class="admin-content">
+                <!-- Dashboard Tab -->
+                <div id="dashboardTab" class="admin-tab active">
+                    <div class="stats-container">
+                        <div class="stat-card glass-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h4>Total Contributions</h4>
+                                <p id="totalContributions">0</p>
+                            </div>
+                        </div>
+                        <div class="stat-card glass-card">
+                            <div class="stat-icon verified">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h4>Verified</h4>
+                                <p id="verifiedContributions">0</p>
+                            </div>
+                        </div>
+                        <div class="stat-card glass-card">
+                            <div class="stat-icon pending">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h4>Pending</h4>
+                                <p id="pendingContributions">0</p>
+                            </div>
+                        </div>
+                        <div class="stat-card glass-card">
+                            <div class="stat-icon amount">
+                                <i class="fas fa-rupee-sign"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h4>Total Amount</h4>
+                                <p id="totalAmount">₹0</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="recent-contributions glass-card">
+                        <h4>Recent Contributions</h4>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Event</th>
+                                    <th>Amount</th>
+                                    <th>Status</th>
+                                    <th>Date</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="recentContributions">
+                                <!-- Filled by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- All Contributions Tab -->
+                <div id="contributionsTab" class="admin-tab">
+                    <div class="contributions-filter glass-card">
+                        <div class="filter-group">
+                            <label for="filterEvent">Event Type:</label>
+                            <select id="filterEvent">
+                                <option value="all">All Events</option>
+                                <option value="birthday">Birthday</option>
+                                <option value="farewell">Farewell</option>
+                                <option value="trust">Trust Donation</option>
+                                <option value="newyear">New Year</option>
+                                <option value="religious">Religious</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label for="filterStatus">Status:</label>
+                            <select id="filterStatus">
+                                <option value="all">All Statuses</option>
+                                <option value="verified">Verified</option>
+                                <option value="pending">Pending</option>
+                            </select>
+                        </div>
+                        <button id="applyFilterBtn" class="filter-btn">Apply Filters</button>
+                    </div>
+
+                    <div class="contributions-list glass-card">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Mobile</th>
+                                    <th>Event</th>
+                                    <th>Amount</th>
+                                    <th>Transaction ID</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="allContributions">
+                                <!-- Filled by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Export Tab -->
+                <div id="exportTab" class="admin-tab">
+                    <div class="export-options glass-card">
+                        <h4>Export Contribution Data</h4>
+                        <div class="export-form">
+                            <div class="form-group">
+                                <label for="exportEventType">Event Type:</label>
+                                <select id="exportEventType">
+                                    <option value="all">All Events</option>
+                                    <option value="birthday">Birthday</option>
+                                    <option value="farewell">Farewell</option>
+                                    <option value="trust">Trust Donation</option>
+                                    <option value="newyear">New Year</option>
+                                    <option value="religious">Religious</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="exportStatus">Status:</label>
+                                <select id="exportStatus">
+                                    <option value="all">All Statuses</option>
+                                    <option value="verified">Verified</option>
+                                    <option value="pending">Pending</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="exportFormat">Format:</label>
+                                <select id="exportFormat">
+                                    <option value="excel">Excel (CSV)</option>
+                                    <option value="json">JSON</option>
+                                </select>
+                            </div>
+                            <button id="exportBtn" class="export-button">
+                                <i class="fas fa-download"></i> Export Data
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contribution Detail Modal -->
+    <div id="detailModal" class="modal">
+        <div class="modal-content glass-card">
+            <span class="close-modal">&times;</span>
+            <h3>Contribution Details</h3>
+            <div class="modal-body" id="modalBody">
+                <!-- Filled by JavaScript -->
+            </div>
+            <div class="modal-actions">
+                <button id="verifyBtn" class="verify-button">
+                    <i class="fas fa-check"></i> Mark as Verified
+                </button>
+                <button id="pendingBtn" class="pending-button">
+                    <i class="fas fa-clock"></i> Mark as Pending
+                </button>
+                <button id="deleteBtn" class="delete-button">
+                    <i class="fas fa-trash"></i> Delete Entry
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content glass-card">
+            <h3>Admin Login</h3>
+            <div class="login-form">
+                <div class="form-group">
+                    <label for="adminUsername">Username</label>
+                    <input type="text" id="adminUsername" placeholder="Enter admin username">
+                </div>
+                <div class="form-group">
+                    <label for="adminPassword">Password</label>
+                    <input type="password" id="adminPassword" placeholder="Enter password">
+                </div>
+                <button id="loginBtn" class="login-button">
+                    <i class="fas fa-sign-in-alt"></i> Login
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/admin.js"></script>
+
+</body>
+</html>
